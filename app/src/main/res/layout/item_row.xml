@@ -25,5 +25,7 @@
                 android:text="Image"
                 android:layout_width="50dp"
                 android:layout_height="50dp" android:id="@+id/tvImage" android:layout_weight="1"/>
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

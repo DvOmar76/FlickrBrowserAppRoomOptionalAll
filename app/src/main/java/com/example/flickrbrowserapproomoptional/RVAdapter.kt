@@ -3,17 +3,18 @@ package com.example.flickrbrowserapproomoptional
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.flickrbrowserapproomoptional.DBRoom.Image
 import com.example.flickrbrowserapproomoptional.databinding.ItemRowBinding
 
 
-class RVAdapter(val photos:List<Image>,val activity: MainActivity):RecyclerView.Adapter<RVAdapter.RVHolder>() {
-    class RVHolder(view: View):RecyclerView.ViewHolder(view){
-        val binding= ItemRowBinding.bind(view)
+class RVAdapter(val photos:List<Image>,fragment: StarFragment):RecyclerView.Adapter<RVAdapter.RVHolder>() {
+   val fragment=fragment
 
+
+    class RVHolder (view: View):RecyclerView.ViewHolder(view){
+        val binding= ItemRowBinding.bind(view)
     }
 
 
@@ -33,24 +34,17 @@ class RVAdapter(val photos:List<Image>,val activity: MainActivity):RecyclerView.
 
        with(holder){
             binding.tvImage.text=title
-         Glide.with(activity)
+
+         Glide.with(binding.imageView)
             .load(url)
              .centerCrop()
             .into(binding.imageView)
-           binding.imageView.setOnClickListener {
-                Glide.with(activity)
-                    .load(url)
-                    .centerCrop()
-                    .into(activity.binding.imageViewFullScreen)
-                activity.binding.imageViewFullScreen.isVisible=true
-                activity.binding.linearLayout.isVisible=false
-            }
-            activity.binding.imageViewFullScreen.setOnClickListener {
-                activity.binding.imageViewFullScreen.isVisible=false
-                activity.binding.linearLayout.isVisible=true
+//           binding.imageView.setOnClickListener {
+//            fragment.findNavController().navigate(R.id.action_homeFragment_to_imageFragment)
+//               ImageFragment.image=photos[position]
+//            }
 
 
-            }
         }
 
 

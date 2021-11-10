@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_fragment"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.flickrbrowserapproomoptional.homeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addImageFragment"
+            app:destination="@id/addImageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_starFragment"
+            app:destination="@id/starFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.example.flickrbrowserapproomoptional.ImageFragment"
+        android:label="fragment_image"
+        tools:layout="@layout/fragment_image" >
+        <action
+            android:id="@+id/action_imageFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addImageFragment"
+        android:name="com.example.flickrbrowserapproomoptional.AddImageFragment"
+        android:label="fragment_add_image"
+        tools:layout="@layout/fragment_add_image" >
+        <action
+            android:id="@+id/action_addImageFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/starFragment"
+        android:name="com.example.flickrbrowserapproomoptional.StarFragment"
+        android:label="fragment_star"
+        tools:layout="@layout/fragment_star" >
+        <action
+            android:id="@+id/action_starFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
